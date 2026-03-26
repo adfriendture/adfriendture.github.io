@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Ad-friend-ture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1612;
+      --ink-muted: #6b6055;
+      --ink-faint: #a89e95;
+      --parchment: #faf7f2;
+      --parchment-mid: #f0ebe2;
+      --gold: #b8924a;
+      --gold-light: #d4aa6a;
+      --rule: rgba(184, 146, 74, 0.25);
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--ink);
+      padding: 2rem 2rem 1.75rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(184,146,74,0.04) 40px,
+        rgba(184,146,74,0.04) 41px
+      );
+      pointer-events: none;
+    }
+
+    .header-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .header-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      color: #faf7f2;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .header-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .header-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+      opacity: 0.6;
+    }
+
+    /* Layout */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .meta-date {
+      font-size: 13px;
+      color: var(--ink-faint);
+      font-weight: 300;
+    }
+
+    .meta-badge {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--parchment-mid);
+      color: var(--gold);
+      border: 1px solid var(--rule);
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+
+    /* Typography */
+    .lead {
+      font-family: 'Lora', serif;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--ink-muted);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 2.5rem 0 0.75rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .section-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 1rem;
+    }
+
+    ul li {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      padding: 0.35rem 0 0.35rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid var(--parchment-mid);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,146,74,0.35);
+      transition: border-color 0.15s;
+    }
+
+    a:hover { border-color: var(--gold); }
+
+    /* Third-party service cards */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .service-card {
+      background: var(--parchment-mid);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+    }
+
+    .service-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .service-purpose {
+      font-size: 12px;
+      color: var(--ink-faint);
+      line-height: 1.5;
+    }
+
+    /* Contact block */
+    .contact-block {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: var(--ink);
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 30px,
+        rgba(184,146,74,0.05) 30px,
+        rgba(184,146,74,0.05) 31px
+      );
+    }
+
+    .contact-block p {
+      color: rgba(250,247,242,0.65);
+      font-size: 14px;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .contact-block a {
+      color: var(--gold-light);
+      border-bottom-color: rgba(212,170,106,0.4);
+      position: relative;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    /* Footer */
+    .page-footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 12px;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--rule);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="header-eyebrow">Ad-friend-ture</p>
+    <h1 class="header-title">Privacy <em>Policy</em></h1>
+    <div class="header-rule"></div>
+  </header>
+
+  <main class="page-wrap">
+
+    <div class="meta-bar">
+      <span class="meta-date">Effective date: January 1, 2026 &nbsp;·&nbsp; Last updated: January 1, 2026</span>
+      <span class="meta-badge">Version 1.0</span>
+    </div>
+
+    <p class="lead">Ad-friend-ture is an AI-driven narrative adventure game. This policy explains what information we collect when you use the app, how we use it, and your rights as a player.</p>
+
+    <!-- 1 -->
+    <h2><span class="section-number">Section 1</span>Who We Are</h2>
+    <p>Ad-friend-ture is developed and operated by Kevin Powers Rose ("we," "us," or "our"). If you have any questions about this policy, you can reach us at the contact details at the bottom of this page.</p>
+
+    <!-- 2 -->
+    <h2><span class="section-number">Section 2</span>Information We Collect</h2>
+    <p>We currently collect a limited amount of information to run the app. Here is what we collect and why:</p>
+
+    <p><strong>Content you create.</strong> When you play Ad-friend-ture, the AI generates narrative content and you may create a character — including a name, backstory, and optionally an AI-generated portrait image. Portrait images are uploaded to our servers so they can be displayed consistently across sessions and on other players' screens during multiplayer games.</p>
+
+    <p><strong>Gameplay data.</strong> Your campaign history, character stats, inventory, and choices are stored locally on your device. Some data (such as multiplayer session state and portraits) is also stored on our servers to support real-time party play.</p>
+
+    <p><strong>Purchase information.</strong> If you subscribe to a paid plan, our payment processor (RevenueCat) handles the transaction. We receive a confirmation that a purchase was made and your subscription status, but we never see or store your full payment card details.</p>
+
+    <p><strong>Technical data.</strong> Like most apps, we receive basic technical information when you use the app — such as your device type, operating system version, and general error logs. We use this solely to keep the app working correctly.</p>
+
+    <p><strong>No account required yet.</strong> The app currently does not require you to create an account or provide an email address. If we add optional or required accounts in a future update, this policy will be updated and you will be notified.</p>
+
+    <!-- 3 -->
+    <h2><span class="section-number">Section 3</span>How We Use Your Information</h2>
+    <ul>
+      <li>To run the game and deliver AI-generated story content</li>
+      <li>To store your character portraits and sync multiplayer sessions</li>
+      <li>To process subscriptions and verify access to premium features</li>
+      <li>To diagnose technical problems and improve app stability</li>
+      <li>To comply with our legal obligations</li>
+    </ul>
+    <p>We do not use your data for advertising, we do not sell it to third parties, and we do not use it to build profiles for marketing purposes.</p>
+
+    <!-- 4 -->
+    <h2><span class="section-number">Section 4</span>Third-Party Services</h2>
+    <p>Ad-friend-ture connects to the following third-party services to function. Each has its own privacy policy.</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <p class="service-name">Anthropic (Claude)</p>
+        <p class="service-purpose">Powers the AI Narrator and generates story content from your choices.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-name">OpenAI</p>
+        <p class="service-purpose">Generates AI portrait images for your characters.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-name">RevenueCat</p>
+        <p class="service-purpose">Manages in-app subscriptions and purchase verification.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-name">Apple App Store</p>
+        <p class="service-purpose">Distributes the app and processes payments on iOS.</p>
+      </div>
+    </div>
+
+    <p>When your in-game text and choices are sent to Anthropic or OpenAI to generate content, those providers process that data under their own terms. We recommend reviewing their privacy policies if you have concerns about how AI providers handle input data.</p>
+
+    <!-- 5 -->
+    <h2><span class="section-number">Section 5</span>Data Storage and Security</h2>
+    <p>Most of your gameplay data is stored locally on your device and never leaves it. Character portrait images and multiplayer session data are stored on secure servers. We use industry-standard encryption (HTTPS/TLS) for all data in transit.</p>
+    <p>No method of transmission over the internet is 100% secure. We take reasonable precautions, but we cannot guarantee absolute security.</p>
+
+    <!-- 6 -->
+    <h2><span class="section-number">Section 6</span>Data Retention</h2>
+    <p>We retain your portrait images and multiplayer session data for as long as you use the app. If you delete the app, locally stored data is removed from your device automatically. If you would like us to delete any server-side data associated with your usage, please contact us using the details below and we will do so within 30 days.</p>
+
+    <!-- 7 -->
+    <h2><span class="section-number">Section 7</span>Children's Privacy</h2>
+    <p>Ad-friend-ture is rated 13+ on the App Store. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us immediately and we will take steps to delete it.</p>
+
+    <!-- 8 -->
+    <h2><span class="section-number">Section 8</span>Your Rights</h2>
+    <p>Depending on where you live, you may have rights regarding your personal data — including the right to access, correct, or delete it. To exercise any of these rights, contact us at the address below. We will respond within 30 days.</p>
+    <p>If you are located in the European Economic Area, UK, or California, you have additional rights under GDPR, UK GDPR, and CCPA respectively. We honor all such requests.</p>
+
+    <!-- 9 -->
+    <h2><span class="section-number">Section 9</span>Changes to This Policy</h2>
+    <p>We may update this policy from time to time — for example, when we add account features or new third-party integrations. We will update the "Last updated" date at the top of this page and, for material changes, notify you through the app or via email if you have an account.</p>
+
+    <!-- 10 -->
+    <h2><span class="section-number">Section 10</span>Contact Us</h2>
+    <div class="contact-block">
+      <p class="contact-label">Questions or requests?</p>
+      <p>We're happy to hear from you. Reach out at any time:</p>
+      <p><a href="mailto:privacy@adfriendture.com">privacy@adfriendture.com</a></p>
+      <p style="margin-top: 0.75rem; font-size: 12px;">Ad-friend-ture &nbsp;·&nbsp; United States</p>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    &copy; 2026 Kevin Powers Rose &nbsp;·&nbsp; Ad-friend-ture &nbsp;·&nbsp; All rights reserved
+  </footer>
+
+</body>
+</html>
