@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Deletion Request — Adfriendture</title>
+  <meta name="description" content="Request deletion of your Adfriendture account and associated data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0608;
+      --surface:   #130e10;
+      --border:    #2a1f22;
+      --gold:      #c8a96e;
+      --gold-dim:  #8a6e3e;
+      --text:      #e8ddd0;
+      --muted:     #8a7a6e;
+      --accent:    #61c08e;
+      --danger:    #c06161;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* Subtle background texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(200,169,110,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(97,192,142,0.03) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+
+    .logo-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .intro-box strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      margin-top: 2.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    p { margin-bottom: 1rem; color: var(--text); }
+
+    ul {
+      margin: 0 0 1rem 1.5rem;
+      color: var(--text);
+    }
+
+    ul li { margin-bottom: 0.4rem; }
+
+    .warning-box {
+      background: rgba(192, 97, 97, 0.08);
+      border: 1px solid rgba(192, 97, 97, 0.3);
+      border-left: 3px solid var(--danger);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .warning-box strong { color: var(--danger); }
+
+    /* Request form */
+    .request-form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    input[type="email"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--gold-dim);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    select option {
+      background: #1a1218;
+      color: var(--text);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #8a3a3a, #6b2828);
+      border: 1px solid rgba(192, 97, 97, 0.4);
+      border-radius: 4px;
+      color: #f0d0d0;
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #a04444, #7a3232);
+      border-color: rgba(192, 97, 97, 0.6);
+    }
+
+    .submit-btn:active { transform: scale(0.99); }
+
+    /* Success state */
+    .success-message {
+      display: none;
+      background: rgba(97, 192, 142, 0.08);
+      border: 1px solid rgba(97, 192, 142, 0.3);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .success-message .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .success-message h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .success-message p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+    /* Alternative email method */
+    .alt-method {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .alt-method p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+    .email-link {
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--gold-dim);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+
+    .email-link:hover { color: var(--text); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a { color: var(--gold-dim); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      main { padding: 2.5rem 1.25rem 4rem; }
+      .request-form { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">A</div>
+  <a href="https://adfriendture.github.io" class="logo-name">Adfriendture</a>
+</header>
+
+<main>
+  <p class="page-eyebrow">Account Management</p>
+  <h1>Data Deletion Request</h1>
+  <p class="meta">Effective January 1, 2026 &nbsp;·&nbsp; Framework Foundry LLC</p>
+
+  <div class="intro-box">
+    <strong>Your data belongs to you.</strong> You have the right to request deletion of your account and all associated data at any time. We will process your request within <strong>30 days</strong> and send a confirmation to your email address.
+  </div>
+
+  <h2>What Will Be Deleted</h2>
+  <p>When you submit a deletion request, the following data will be permanently removed from our systems:</p>
+  <ul>
+    <li>Your account and authentication credentials</li>
+    <li>All characters you have created, including AI-generated portrait images</li>
+    <li>Your campaign history, story summaries, and game progress</li>
+    <li>Subscription status and purchase records stored on our servers</li>
+    <li>Any gameplay data associated with your account in Firestore</li>
+    <li>Abuse tracking records, if any exist for your account</li>
+  </ul>
+
+  <div class="warning-box">
+    <strong>⚠️ This action is permanent and cannot be undone.</strong> Once your data is deleted, your campaigns, characters, and progress cannot be recovered. If you have an active subscription, please cancel it in the App Store or Google Play before submitting this request — deletion of your account does not automatically cancel your subscription.
+  </div>
+
+  <h2>What Is Not Deleted</h2>
+  <p>The following data may be retained after deletion:</p>
+  <ul>
+    <li><strong>Transaction records</strong> — payment processor records held by Apple, Google, or RevenueCat for legal and accounting purposes</li>
+    <li><strong>Anonymized analytics</strong> — aggregate data that cannot be linked back to you individually</li>
+    <li><strong>Legal holds</strong> — if required by applicable law</li>
+  </ul>
+
+  <h2>Submit Your Request</h2>
+
+  <div class="request-form">
+    <form id="deletionForm">
+      <div class="form-group">
+        <label for="email">Email address associated with your account *</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="platform">Platform *</label>
+        <select id="platform" name="platform" required>
+          <option value="" disabled selected>Select platform</option>
+          <option value="ios">iOS (App Store)</option>
+          <option value="android">Android (Google Play)</option>
+          <option value="both">Both platforms</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason for deletion (optional)</label>
+        <textarea id="reason" name="reason" placeholder="Help us improve — why are you leaving? (optional)"></textarea>
+      </div>
+
+      <div class="form-group">
+        <div class="checkbox-group">
+          <input type="checkbox" id="confirm" name="confirm" required />
+          <label for="confirm">I understand this action is permanent and cannot be undone. I confirm I want to delete my account and all associated data.</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Deletion Request</button>
+    </form>
+
+    <div class="success-message" id="successMsg">
+      <div class="icon">✓</div>
+      <h3>Request Received</h3>
+      <p>We'll process your deletion request within 30 days and send a confirmation to your email address.</p>
+    </div>
+
+    <div class="alt-method">
+      <p>Prefer to email us directly?</p>
+      <a href="mailto:privacy@adfriendture.com?subject=Data%20Deletion%20Request&body=Please%20delete%20my%20account%20and%20all%20associated%20data.%0A%0AEmail%20address%3A%20%5Byour%20email%5D%0APlatform%3A%20%5BiOS%20%2F%20Android%5D" class="email-link">privacy@adfriendture.com</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    <a href="https://adfriendture.github.io">Adfriendture</a>
+    &nbsp;·&nbsp;
+    <a href="https://adfriendture.github.io/privacy-policy.html">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    © 2026 Framework Foundry LLC
+  </p>
+</footer>
+
+<script>
+  document.getElementById('deletionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email    = document.getElementById('email').value;
+    const platform = document.getElementById('platform').value;
+    const reason   = document.getElementById('reason').value;
+
+    // Build mailto with all the info pre-filled
+    const subject  = encodeURIComponent('Data Deletion Request');
+    const body     = encodeURIComponent(
+      'DATA DELETION REQUEST\n' +
+      '=====================\n\n' +
+      'Email: ' + email + '\n' +
+      'Platform: ' + platform + '\n' +
+      (reason ? 'Reason: ' + reason + '\n' : '') +
+      '\nI confirm I want my account and all associated data permanently deleted.'
+    );
+
+    window.location.href = 'mailto:privacy@adfriendture.com?subject=' + subject + '&body=' + body;
+
+    // Show success message
+    document.getElementById('deletionForm').style.display = 'none';
+    document.getElementById('successMsg').style.display   = 'block';
+  });
+</script>
+
+</body>
+</html>
