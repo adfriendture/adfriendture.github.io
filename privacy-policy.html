@@ -184,7 +184,7 @@
     ul li:last-child { border-bottom: none; }
 
     ul li::before {
-      content: '—';
+      content: '–';
       position: absolute;
       left: 0;
       color: var(--gold);
@@ -301,7 +301,7 @@
   <main class="page-wrap">
 
     <div class="meta-bar">
-      <span class="meta-date">Effective date: January 1, 2026 &nbsp;·&nbsp; Last updated: January 1, 2026</span>
+      <span class="meta-date">Effective date: January 1, 2026 &nbsp;&middot;&nbsp; Last updated: April 17, 2026</span>
       <span class="meta-badge">Version 1.0</span>
     </div>
 
@@ -309,28 +309,26 @@
 
     <!-- 1 -->
     <h2><span class="section-number">Section 1</span>Who We Are</h2>
-    <p>Ad-friend-ture is developed and operated by Kevin Powers Rose ("we," "us," or "our"). If you have any questions about this policy, you can reach us at the contact details at the bottom of this page.</p>
+    <p>Ad-friend-ture is developed and operated by Framework Foundry LLC ("we," "us," or "our"). If you have any questions about this policy, you can reach us at the contact details at the bottom of this page.</p>
 
     <!-- 2 -->
     <h2><span class="section-number">Section 2</span>Information We Collect</h2>
-    <p>We currently collect a limited amount of information to run the app. Here is what we collect and why:</p>
+    <p>We collect a limited amount of information to run the app. Here is what we collect and why:</p>
+
+    <p><strong>Account information.</strong> Creating an account is required to play. When you sign up, we collect your email address, a display name, and a password. Your email and display name are stored via Firebase Authentication. We never see your raw password — it is hashed by Firebase before storage.</p>
 
     <p><strong>Content you create.</strong> When you play Ad-friend-ture, the AI generates narrative content and you may create a character — including a name, backstory, and optionally an AI-generated portrait image. Portrait images are uploaded to our servers so they can be displayed consistently across sessions and on other players' screens during multiplayer games.</p>
 
-    <p><strong>Gameplay data.</strong> Your campaign history, character stats, inventory, and choices are stored locally on your device. Some data (such as multiplayer session state and portraits) is also stored on our servers to support real-time party play.</p>
-
-    <p><strong>Purchase information.</strong> If you subscribe to a paid plan, our payment processor (RevenueCat) handles the transaction. We receive a confirmation that a purchase was made and your subscription status, but we never see or store your full payment card details.</p>
+    <p><strong>Gameplay data.</strong> Your campaign history, character stats, inventory, and choices are stored on our servers to support real-time party play and allow you to resume campaigns across devices.</p>
 
     <p><strong>Technical data.</strong> Like most apps, we receive basic technical information when you use the app — such as your device type, operating system version, and general error logs. We use this solely to keep the app working correctly.</p>
-
-    <p><strong>No account required yet.</strong> The app currently does not require you to create an account or provide an email address. If we add optional or required accounts in a future update, this policy will be updated and you will be notified.</p>
 
     <!-- 3 -->
     <h2><span class="section-number">Section 3</span>How We Use Your Information</h2>
     <ul>
+      <li>To authenticate you and manage your account</li>
       <li>To run the game and deliver AI-generated story content</li>
       <li>To store your character portraits and sync multiplayer sessions</li>
-      <li>To process subscriptions and verify access to premium features</li>
       <li>To diagnose technical problems and improve app stability</li>
       <li>To comply with our legal obligations</li>
     </ul>
@@ -350,12 +348,12 @@
         <p class="service-purpose">Generates AI portrait images for your characters.</p>
       </div>
       <div class="service-card">
-        <p class="service-name">RevenueCat</p>
-        <p class="service-purpose">Manages in-app subscriptions and purchase verification.</p>
+        <p class="service-name">Firebase (Google)</p>
+        <p class="service-purpose">Handles account authentication, data storage, and file hosting.</p>
       </div>
       <div class="service-card">
         <p class="service-name">Apple App Store</p>
-        <p class="service-purpose">Distributes the app and processes payments on iOS.</p>
+        <p class="service-purpose">Distributes the app and processes any in-app payments on iOS.</p>
       </div>
     </div>
 
@@ -363,12 +361,12 @@
 
     <!-- 5 -->
     <h2><span class="section-number">Section 5</span>Data Storage and Security</h2>
-    <p>Most of your gameplay data is stored locally on your device and never leaves it. Character portrait images and multiplayer session data are stored on secure servers. We use industry-standard encryption (HTTPS/TLS) for all data in transit.</p>
+    <p>Your account credentials are managed by Firebase Authentication. Campaign data and portrait images are stored on Firebase servers. We use industry-standard encryption (HTTPS/TLS) for all data in transit.</p>
     <p>No method of transmission over the internet is 100% secure. We take reasonable precautions, but we cannot guarantee absolute security.</p>
 
     <!-- 6 -->
     <h2><span class="section-number">Section 6</span>Data Retention</h2>
-    <p>We retain your portrait images and multiplayer session data for as long as you use the app. If you delete the app, locally stored data is removed from your device automatically. If you would like us to delete any server-side data associated with your usage, please contact us using the details below and we will do so within 30 days.</p>
+    <p>We retain your account and campaign data for as long as your account is active. If you would like us to delete your account and all associated data, please contact us using the details below and we will do so within 30 days.</p>
 
     <!-- 7 -->
     <h2><span class="section-number">Section 7</span>Children's Privacy</h2>
@@ -381,21 +379,21 @@
 
     <!-- 9 -->
     <h2><span class="section-number">Section 9</span>Changes to This Policy</h2>
-    <p>We may update this policy from time to time — for example, when we add account features or new third-party integrations. We will update the "Last updated" date at the top of this page and, for material changes, notify you through the app or via email if you have an account.</p>
+    <p>We may update this policy from time to time — for example, when we add new features or third-party integrations. We will update the "Last updated" date at the top of this page and, for material changes, notify you through the app or via email.</p>
 
     <!-- 10 -->
     <h2><span class="section-number">Section 10</span>Contact Us</h2>
     <div class="contact-block">
       <p class="contact-label">Questions or requests?</p>
       <p>We're happy to hear from you. Reach out at any time:</p>
-      <p><a href="mailto:privacy@adfriendture.com">privacy@adfriendture.com</a></p>
-      <p style="margin-top: 0.75rem; font-size: 12px;">Ad-friend-ture &nbsp;·&nbsp; United States</p>
+      <p><a href="mailto:hello@frameworkfoundry.com">hello@frameworkfoundry.com</a></p>
+      <p style="margin-top: 0.75rem; font-size: 12px;">Ad-friend-ture &nbsp;&middot;&nbsp; United States</p>
     </div>
 
   </main>
 
   <footer class="page-footer">
-    &copy; 2026 Kevin Powers Rose &nbsp;·&nbsp; Ad-friend-ture &nbsp;·&nbsp; All rights reserved
+    &copy; 2026 Framework Foundry LLC &nbsp;&middot;&nbsp; Ad-friend-ture &nbsp;&middot;&nbsp; All rights reserved
   </footer>
 
 </body>
